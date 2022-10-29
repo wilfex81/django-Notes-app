@@ -30,10 +30,11 @@ CORS_ALLOWED_ORIGINS = [
 ]
 ALLOWED_HOSTS = ['https://django-notes-app-production.up.railway.app']
 CSRF_TRUSTED_ORIGINS = [
-    'https://django-notes-app-production.up.railway.app'
+    'https://'
+    #'https://django-notes-app-production.up.railway.app'
 ],
 CORS_ORIGIN_WHITELIST = [
-    'https://django-notes-app-production.up.railway.app',
+    #'https://django-notes-app-production.up.railway.app',
 ]
 
 # Application definition
