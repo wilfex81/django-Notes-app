@@ -11,6 +11,6 @@ class Task(models.Model):
 
     def __str__(self):
         return self.title
-    
+        
     class Meta:
-        ordering = ['complete']
+        order_with_respect_to = 'user'

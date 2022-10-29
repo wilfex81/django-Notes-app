@@ -1,19 +1,25 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Register</title>
-</head>
-<body>
+{% extends 'base/main.html' %}
+{% block content %}
+
+<div class="header-bar">
     <h1>Register</h1>
+</div>
+
+<div class="card-body">
     <form action="" method="post">
         {% csrf_token %}
-        {{form.as_p}}
-        <input type="submit" value="Register">
+        <label for="">{{ form.username.label}}</label>
+        {{form.username}}
+        <label for="">{{ form.password1.label}}</label>
+        {{form.password1}}
+        <label for="">{{ form.password1.label}}</label>
+        {{form.password1}}
+        <input style="margin-top: 10px;" class="button" type="submit" value="Register">
     </form>
-
+    
     <p>Already have an account?<a href="{% url 'login' %}">Login</a></p>
-</body>
-</html>
+    
+</div>
+
+{% endblock content %}
+    
