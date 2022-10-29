@@ -24,18 +24,18 @@ SECRET_KEY = 'django-insecure-@=fd1qp&n*!1zxtsmy-l$e&=1p^6(pqxzp_=$lc=%9jafui15t
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
-
+SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 CORS_ALLOWED_ORIGINS = [
 'https://django-notes-app-production.up.railway.app',
-"http://localhost:8000"
 ]
-ALLOWED_HOSTS = ['django-notes-app-production.up.railway.app']
+ALLOWED_HOSTS = ['https://django-notes-app-production.up.railway.app']
 CSRF_TRUSTED_ORIGINS = [
     'https://django-notes-app-production.up.railway.app'
 ],
 CORS_ORIGIN_WHITELIST = [
     'https://django-notes-app-production.up.railway.app',
 ]
+
 # Application definition
 
 INSTALLED_APPS = [
