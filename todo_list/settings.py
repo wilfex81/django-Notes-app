@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-@=fd1qp&n*!1zxtsmy-l$e&=1p^6(pqxzp_=$lc=%9jafui15t
 DEBUG = True
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 
-ALLOWED_HOSTS = ['django-notes-app-production.up.railway.app']
+ALLOWED_HOSTS = ['django-notes-app-production.up.railway.app', '127.0.0.1']
 
 # CORS_ALLOWED_ORIGINS = [
 #  'https://django-notes-app-production.up.railway.app/',
@@ -126,9 +126,18 @@ LOGIN_URL = 'login'
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.1/howto/static-files/
-
+import os
 STATIC_URL = 'static/'
+MEDIA_URL = '/images/'
 
+MEDIA_ROOT = os.path.join(BASE_DIR, 'static/images')
+
+
+STATICFILES_DIRS=[
+    BASE_DIR/'static'
+]
+
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
 
