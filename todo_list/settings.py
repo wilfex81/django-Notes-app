@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-@=fd1qp&n*!1zxtsmy-l$e&=1p^6(pqxzp_=$lc=%9jafui15t
 DEBUG = True
 
 ALLOWED_HOSTS = ['django-notes-app-production.up.railway.app']
-
+CSRF_TRUSTED_ORIGINS = ['https://django-notes-app-production.up.railway.app/']
 
 # Application definition
 
