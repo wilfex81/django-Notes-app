@@ -28,12 +28,12 @@ SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 
 ALLOWED_HOSTS = ['https://django-notes-app-production.up.railway.app/']
 
-CORS_ALLOWED_ORIGINS = [
- 'https://django-notes-app-production.up.railway.app/',
-]
-# CSRF_TRUSTED_ORIGINS = [
-#     'https://django-notes-app-production.up.railway.app/'
+# CORS_ALLOWED_ORIGINS = [
+#  'https://django-notes-app-production.up.railway.app/',
 # ]
+CSRF_TRUSTED_ORIGINS = [
+    'https://django-notes-app-production.up.railway.app/'
+]
 # Application definition
 
 INSTALLED_APPS = [
