@@ -97,7 +97,7 @@ WSGI_APPLICATION = 'todo_list.wsgi.application'
 '''Postgress'''
 DATABASES = {
     'default': {
-        'ENGINE': 'postgresql://${{ PGUSER }}:${{ PGPASSWORD }}@${{ PGHOST }}:${{ PGPORT }}/${{ PGDATABASE }}',
+        'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'railway',
         'USER': 'postgres',
         'PASSWORD': 'I5OEXxZHq7INsonIcutz',
