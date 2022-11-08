@@ -11,13 +11,16 @@ https://docs.djangoproject.com/en/4.1/ref/settings/
 """
 
 from pathlib import Path
-import environ
+from dotenv import load_dotenv
+import dj_database_url
 import os
 
 # Initialise environment variables
-env = environ.Env()
-environ.Env.read_env()
 
+
+BASE_DIR = Path(__file__).resolve().parent.parent
+
+load_dotenv(os.path.join(BASE_DIR, ".env"))
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -26,8 +29,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-#SECRET_KEY = env('SECRET_KEY')
-SECRET_KEY='django-insecure-@=fd1qp&n*!1zxtsmy-l$e&=1p^6(pqxzp_=$lc=%9jafui15t'
+SECRET_KEY = os.getenv("SECRET_KEY")
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
@@ -95,15 +97,13 @@ WSGI_APPLICATION = 'todo_list.wsgi.application'
 
 
 '''Postgress'''
+
+
+DATABASE_URL = os.getenv("DATABASE_URL")
+
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'railway',
-        'USER': 'postgres',
-        'PASSWORD': 'I5OEXxZHq7INsonIcutz',
-        'HOST': 'containers-us-west-76.railway.app',
-        'PORT': '7440',
-    }
+    'ENGINE': 'django.db.backends.postrgesql',
+    "default": dj_database_url.config(default=DATABASE_URL, conn_max_age=1800),
 }
 
 # DATABASES = {
