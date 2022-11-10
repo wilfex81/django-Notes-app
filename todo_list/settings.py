@@ -95,15 +95,16 @@ WSGI_APPLICATION = 'todo_list.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
 
-
 '''Postgress'''
-
-
-DATABASE_URL = os.getenv("DATABASE_URL")
-
 DATABASES = {
-    'ENGINE': 'django.db.backends.postrgesql',
-    "default": dj_database_url.config(default=DATABASE_URL, conn_max_age=1800),
+   'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'railway',
+        'USER': 'postgres',
+        'PASSWORD': 'I5OEXxZHq7INsonIcutz',
+        'HOST': 'containers-us-west-76.railway.app',
+        'PORT': '7440',
+    }
 }
 
 # DATABASES = {
