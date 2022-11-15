@@ -58,6 +58,11 @@ INSTALLED_APPS = [
 
     'base.apps.BaseConfig',
     'corsheaders',
+
+
+    #password validators
+    'django_password_validators',
+    'django_password_validators.password_history',
 ]
 
 MIDDLEWARE = [
@@ -97,14 +102,32 @@ WSGI_APPLICATION = 'todo_list.wsgi.application'
 
 
 '''Postgress'''
+ 
+ATOMIC_REQUESTS = True
+import dj_database_url
+import os
+from dotenv import load_dotenv
 
+load_dotenv(os.path.join(BASE_DIR, '.env'))
 
 DATABASE_URL = os.getenv("DATABASE_URL")
 
+# DATABASES = {
+#     "default": dj_database_url.config(default=DATABASE_URL, conn_max_age=1800),
+#     'ENGINE': 'django.db.backends.postgresql',
+# }
+'''Postgress'''
 DATABASES = {
-    'ENGINE': 'django.db.backends.postrgesql',
-    "default": dj_database_url.config(default=DATABASE_URL, conn_max_age=1800),
+   'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'railway',
+        'USER': 'postgres',
+        'PASSWORD': 'I5OEXxZHq7INsonIcutz',
+        'HOST': 'containers-us-west-76.railway.app',
+        'PORT': '7440',
+    }
 }
+
 
 # DATABASES = {
 #     'default': {
@@ -129,6 +152,26 @@ AUTH_PASSWORD_VALIDATORS = [
     },
     {
         'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
+    },
+    {
+        'NAME': 'django_password_validators.password_history.password_validation.UniquePasswordsValidator',
+        'OPTIONS': {
+             # How many recently entered passwords matter.
+             # Passwords out of range are deleted.
+             # Default: 0 - All passwords entered by the user. All password hashes are stored.
+            'last_passwords': 5 # Only the last 5 passwords entered by the user
+        }
+    },
+    {
+        'NAME': 'django_password_validators.password_character_requirements.password_validation.PasswordCharacterValidator',
+        'OPTIONS': {
+             'min_length_digit': 1,
+             'min_length_alpha': 2,
+             'min_length_special': 3,
+             'min_length_lower': 4,
+             'min_length_upper': 5,
+             'special_characters': "~!@#$%^&*()_+{}\":;'[]"
+         }
     },
 ]
 
