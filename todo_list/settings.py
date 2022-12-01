@@ -102,28 +102,28 @@ WSGI_APPLICATION = 'todo_list.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
 
-# '''Postgress'''
-# DATABASES = {
-#    'default': {
-#         'ENGINE': 'django.db.backends.postgresql',
-#         'NAME': 'railway',
-#         'USER': 'postgres',
-#         'PASSWORD': 'I5OEXxZHq7INsonIcutz',
-#         'HOST': 'containers-us-west-76.railway.app',
-#         'PORT': '7440',
-#     }
-# }
 '''Postgress'''
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'To_DO_APP', 
+   'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'railway',
         'USER': 'postgres',
-        'PASSWORD': 'root',
-        'HOST': '0.0.0.0', 
-        'PORT': '5432',
+        'PASSWORD': 'HycG3G33Oo1GxYP5Fjaw',
+        'HOST': 'containers-us-west-76.railway.app',
+        'PORT': '6093',
     }
 }
+# '''Postgress'''
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql_psycopg2',
+#         'NAME': 'To_DO_APP', 
+#         'USER': 'postgres',
+#         'PASSWORD': 'root',
+#         'HOST': '0.0.0.0', 
+#         'PORT': '5432',
+#     }
+# }
 
 
 # DATABASES = {
