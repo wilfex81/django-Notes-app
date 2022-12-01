@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect
 from django.views.generic.list import ListView
 from django.views.generic.detail import DetailView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView, FormView
+from django.views.generic import TemplateView
 from django.urls import reverse_lazy
 
 
@@ -18,6 +19,8 @@ from django.db import transaction
 from .models import Task
 from .forms import PositionForm
 
+class CustomHomePage(TemplateView):
+    template_name= 'base/homepage.html'
 
 class CustomLoginView(LoginView):
     template_name = 'base/login.html'
