@@ -253,9 +253,6 @@ JAZZMIN_SETTINGS = {
     #################
     # Use modals instead of popups
     "related_modal_active": False,
-    #############
-    # UI Tweaks #
-    #############
     # Relative paths to custom CSS/JS scripts (must be present in static files)
     # Uncomment this line once you create the bootstrap-dark.css file
     "custom_css": "css/bootstrap-dark.css",
