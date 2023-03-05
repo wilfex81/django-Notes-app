@@ -3,6 +3,7 @@ from django.views.generic.list import ListView
 from django.views.generic.detail import DetailView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView, FormView
 from django.views.generic import TemplateView
+from .forms import SignUpForm
 from django.urls import reverse_lazy
 
 
@@ -35,7 +36,7 @@ class CustomLoginView(LoginView):
 #Registration page
 class RegisterPage(FormView):
     template_name = 'base/register.html'
-    form_class = UserCreationForm
+    form_class = SignUpForm
     redirect_authenticated_user = True
     success_url = reverse_lazy('tasks')
 

@@ -210,7 +210,7 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 #JAZZMIN_SETTINGS(ADMIN)
 JAZZMIN_SETTINGS = {
     "site_title": "My_to_do_App",
-    "site_header": "your_site_header",
+    "site_header": "To_Do",
     "site_brand": "your_site_brand",
     "site_icon": "images/favicon.png",
     # Add your own branding here
@@ -253,6 +253,9 @@ JAZZMIN_SETTINGS = {
     #################
     # Use modals instead of popups
     "related_modal_active": False,
+    #############
+    # UI Tweaks #
+    #############
     # Relative paths to custom CSS/JS scripts (must be present in static files)
     # Uncomment this line once you create the bootstrap-dark.css file
     "custom_css": "css/bootstrap-dark.css",

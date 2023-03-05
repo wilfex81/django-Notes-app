@@ -1,6 +1,5 @@
 {% extends 'base/main.html' %}
 {% block content %}
-{% load crispy_forms_tags %}
 
 <div class="header-bar">
     <h1>Register</h1>
@@ -8,20 +7,20 @@
 
 <div class="card-body">
     <form action="" method="post">
-        {% csrf_token %}
-        {{ register_form|crispy }}  
-        <label for="">{{ form.username.label}}</label>
-        <input type="text" id="usrname" name="usrname" required>
-        {{form.username}}
-        <label for="">{{ form.password1.label}}</label>
-        <input type="password" id="psw" name="psw" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" required>
-        {{form.password1}}
-        <label for="">{{ form.password2.label}}</label>
-        {{form.password2}}
+        {% csrf_token %}  
+        {% if form.errors %}
+        <div class="alert alert-warning alert-dismissible fade show" role="alert">
+          Your Form Has Errors
+          {% for field in form %}
+              {% if field.errors %}
+                  {{ field.errors }}
+              {% endif %}
+          {% endfor %}
+        </div>
+    {% endif %}
+        {{ form.as_p }}
         <input style="margin-top: 10px;" class="button" type="submit" value="Register">
-        
     </form>
-    
     <p>Already have an account?<a href="{% url 'login' %}">Login</a></p>
     
 </div>
